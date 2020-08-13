@@ -1,0 +1,422 @@
+@import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Sriracha', cursive;
+}
+
+.form__add input[type="text"]:focus {
+    border: 1px solid #ffeaa7;
+}
+
+a {
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.btn__all1 {
+    padding: .5rem 1rem;
+    background-color: #feca57;
+    color: #222f3e;
+    margin: 0 .5rem;
+    border-radius: 5px;
+}
+
+.btn__all2 {
+    padding: .5rem 1rem;
+    background-color: #ee5253;
+    color: #222f3e;
+    margin: 0 .5rem;
+    border-radius: 5px;
+}
+
+li {
+    list-style: none;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+.main {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.title {
+    width: 100%;
+    text-align: center;
+    padding: 2rem 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.title h1 {
+    font-size: 2.5rem;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    padding: 1rem 0;
+}
+
+.form__add {
+    width: 33.3333333333%;
+    margin-right: 2rem;
+    border-radius: 10px;
+    border: 1px solid #ffeaa7;
+    display: none;
+}
+
+.form__add.active {
+    display: block;
+}
+
+.container .form__add .title__add {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffeaa7;
+    padding: 1rem 2rem;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.container .form__add .title__add .close {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    line-height: 30px;
+    background-color: #d63031;
+    text-align: center;
+}
+
+.container .form__add .title__add i {
+    color: white;
+    cursor: pointer;
+}
+
+.container .form__add form {
+    width: 90%;
+    margin: .5rem auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.container .form__add form input {
+    outline: none;
+    border: 1px solid #b2bec3;
+    background: none;
+    padding: .3rem 1rem;
+    font-size: 1.6rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.form__add form label {
+    font-size: 1.6rem;
+    color: #222f3e;
+    margin-bottom: 1rem;
+}
+
+.form__add form .error {
+    align-items: center;
+    font-size: 1.5rem;
+    color: red;
+    font-weight: bold;
+    display: none;
+}
+
+.form__add form select {
+    background: transparent;
+    border: 1px solid #8395a7;
+    outline: none;
+    padding: .6rem;
+    border-radius: 5px;
+}
+
+.form__add form select option:first-child {
+    background: #ee5253;
+}
+
+.form__add form select option:last-child {
+    background: #0abde3;
+}
+
+.form__add .success {
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.form__add .success i {
+    color: white;
+    margin-right: .5rem;
+}
+
+.task {
+    width: 100%;
+}
+
+.task .add__job {
+    margin: 1rem 0 2rem 0;
+}
+
+.task .add__job a {
+    padding: .7rem;
+    background-color: #2e86de;
+    color: white;
+    border-radius: 5px;
+}
+
+.task .add__job a i {
+    color: white;
+    margin-right: .5rem;
+}
+
+.task .control {
+    display: flex;
+    align-items: flex-start;
+}
+
+.task .control .search {
+    width: 50%;
+    border: 1px solid #8395a7;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+    margin-right: 3rem;
+}
+
+.control .search input {
+    border: none;
+    outline: none;
+    padding: .5rem 1rem;
+    font-size: 16px;
+    width: 80%;
+}
+
+.control .search a {
+    background-color: #2e86de;
+    padding: .5rem 1rem;
+    color: white;
+}
+
+.control .search a i {
+    color: white;
+    margin-right: .5rem;
+}
+
+.control .sort .btn__sort {
+    background-color: #2e86de;
+    padding: .5rem 1rem;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    font-size: 1.6rem;
+}
+
+.control .sort .btn__sort i {
+    margin-left: .5rem;
+    font-size: 1.6rem;
+}
+
+.sort .list__sort {
+    border: 1px solid #c8d6e5;
+    margin-top: .5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    position: absolute;
+    display: none;
+    background-color: #ecf0f1;
+}
+
+.sort .list__sort.active {
+    display: block;
+    transition: all .3s ease-in;
+}
+
+.sort .list__sort li {
+    padding: 1rem 2rem .5rem .5rem;
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+.sort .list__sort li:hover {
+    background-color: #95a5a6;
+}
+
+.sort .list__sort li i {
+    margin-right: 1rem;
+}
+
+.table__job {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 4rem;
+}
+
+.table__job tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+.table__job td,
+.table__job th {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.6rem;
+}
+
+.table__job td input {
+    width: 100%;
+    padding: .5rem 1rem;
+    outline: none;
+    border: 1px solid #ccc;
+    font-size: 1.6rem;
+}
+
+.table__job td a {
+    color: white;
+}
+
+.table__job td span {
+    background-color: #2e86de;
+    color: white;
+    padding: .3rem .8rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.table__job span.active {
+    display: none;
+}
+
+.del {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: none;
+}
+
+.del.active {
+    display: block;
+}
+
+.form__del {
+    position: absolute;
+    width: 20%;
+    height: 30%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f2f2f2;
+}
+
+.del i {
+    width: 100%;
+    margin: 1rem 0;
+    color: #eb4d4b;
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.del h3 {
+    width: 100%;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.del a {
+    padding: .6rem 2.5rem;
+    border-radius: 5px;
+    color: white;
+    margin-right: 1rem;
+}
+
+.del .yes {
+    background-color: #6ab04c;
+}
+
+.del .no {
+    background-color: #ff7979;
+}
+
+@media (max-width:991px) {
+    .main {
+        width: 95%;
+        margin: 0 auto;
+    }
+    .container {
+        flex-wrap: wrap;
+    }
+    .form__add {
+        width: 100%;
+        margin: 0 auto 2rem;
+    }
+    .task {
+        padding: 5rem auto;
+    }
+    .task .control {
+        width: 100%;
+    }
+    .task .control .search {
+        width: 70%;
+    }
+    .task .control .search .find {
+        width: 30%;
+        text-align: center;
+    }
+    .sort .list__sort {
+        border: 1px solid #c8d6e5;
+        margin-top: .5rem;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+        position: absolute;
+        right: 5%;
+        display: none;
+        background-color: #ecf0f1;
+    }
+    td .btn__edit,
+    td .btn__del {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+    }
+    .status__col {
+        width: 30%;
+    }
+    .form__del {
+        position: absolute;
+        width: 40%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 2rem;
+        background-color: #f2f2f2;
+    }
+}
+
+@media (max-width:767px) {
+    html {
+        font-size: 50%;
+    }
+}
+
+@media (max-width:512px) {
+    html {
+        font-size: 40%
+    }
+}

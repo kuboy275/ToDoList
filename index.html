@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My To Do List</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+    <div class="main">
+        <div class="title">
+            <h1>Quản Lý Công Việc</h1>
+        </div>
+        <div class="container">
+            <div class="form__add">
+                <div class="title__add">
+                    <h2>Thêm Công Việc</h2>
+                    <a href="#" class="close"> <i class="fa fa-close" aria-hidden="true"></i></a>
+                </div>
+                <form action="">
+                    <label for="name"> Tên : </label>
+                    <input type="text" id="name" required/>
+                    <span class="error"> Vui lòng nhập tên vào</span>
+                    <label for="">Trạng Thái :</label>
+                    <select name="" id="selectStatus">
+                        <option value="Kích Hoạt" id="action">Kích Hoạt</option>
+                        <option value="Ẩn" id="hidden">Ẩn</option>
+                    </select>
+                </form>
+                <div class="success">
+                    <a href="#" class="btn__all1" id="save"> <i class="fa fa-plus" aria-hidden="true"></i> Lưu Lại</a>
+                </div>
+            </div>
+            <!-- Form Add -->
+            <div class="task">
+                <div class="add__job">
+                    <a href="#" class="open"><i class="fa fa-plus" aria-hidden="true"></i> Thêm Công Việc </a>
+                </div>
+                <div class="control">
+                    <div class="search">
+                        <input type="text" id="search" placeholder="Nhập từ khóa...">
+                        <a href="#" class="find"> <i class="fa fa-search" aria-hidden="true"></i> Tìm </a>
+                    </div>
+                    <div class="sort">
+                        <button class="btn__sort">Sắp Xếp <i class="fa fa-sort" aria-hidden="true"></i></button>
+                        <ul class="list__sort">
+                            <li data-sort="desc"><i class="fa fa-sort-alpha-asc" aria-hidden="true"></i> Tên A - Z <i class="fa fa-check check" aria-hidden="true"></i> </li>
+                            <li> <i class="fa fa-sort-alpha-desc" aria-hidden="true"></i> Tên Z - A </li>
+                            <li>Trạng Thái Kích Hoạt </li>
+                            <li>Trạng Thái Ẩn</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="form">
+                    <table class="table__job">
+                        <thead>
+                            <tr>
+                                <th data-col="id">STT</th>
+                                <th>Tên</th>
+                                <th class="status__col">Trạng Thái</th>
+                                <th>Hành Động</th>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><input type="text" id="sub__search"></td>
+                                <td>
+                                    <select name="" id="sub__selectStatus">
+                                        <option class="all" value="Tất Cả">Tất cả</option>
+                                        <option  class="action" value="Kích Hoạt">Kích hoạt</option>
+                                        <option class="hidden" value="Ẩn">Ẩn</option>
+                                    </select>
+                                </td>
+                                <td></td>
+                            </tr>
+                        </thead>
+                        <tbody> </tbody>
+                    </table>
+                    <div class="del">
+                        <div class="form__del">
+                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                            <h3> Complete Delete ?</h3>
+                            <a href="#" class="yes"> Yes </a>
+                            <a href="#" class="no"> No</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/app.js"></script>
+</body>
+
+</html>
