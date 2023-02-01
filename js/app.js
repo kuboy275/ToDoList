@@ -26,6 +26,9 @@ window.onload = () => {
             // open close form add  , sort
             openFormAdd.addEventListener("click", () => {
                 flag = "add"
+                inputName.value = "";
+                selectStatus.value = "";
+                console.log(selectStatus.value);
                 formAdd.classList.add("active");
             })
 
@@ -46,8 +49,8 @@ window.onload = () => {
 
             // Add 
             save.addEventListener("click", () => {
-                validate();
-                if (validate()) {
+                let validateForm = validate();
+                if (validateForm === true) {
                     if (flag == "add") {
                         addData()
                     }
@@ -58,6 +61,10 @@ window.onload = () => {
             btnEdit.forEach((item, index) => item.addEventListener("click", () => {
                 flag = "edit"
                 formAdd.classList.add("active");
+                
+                dataForm = JSON.parse(localStorage.getItem("data"));
+                inputName.value = dataForm[index].name;
+                selectStatus.value = dataForm[index].status;
 
                 save.addEventListener("click", () => {
                     validate();
@@ -95,7 +102,7 @@ window.onload = () => {
 
             const abc = document.querySelector("#sub__selectStatus");
 
-            abc.addEventListener("click", () => {
+            abc.addEventListener("change", () => {
                 searchStatusData(abc.value);
             })
 
@@ -106,14 +113,26 @@ window.onload = () => {
 
             //validate 
             function validate() {
-                const error = document.querySelector(".error")
-                if (inputName.value.length == 0) {
-                    error.style.cssText = "display : block;"
+                const errorText = document.querySelector(".error");
+                const errorStatus = document.querySelector(".error-status");
+                if (inputName.value.trim() == "") {
+                    errorText.style.cssText = "display : block;"
+                }else {
+                    errorText.style.cssText = "display : none;"
+                }
+
+                if (selectStatus.value == "") {
+                    errorStatus.style.cssText = "display : block;"
+                } else {
+                    errorStatus.style.cssText = "display : none;"
+                }
+
+                if(inputName.value.trim() == "" || selectStatus.value == "") {
                     return false;
                 } else {
-                    error.style.cssText = "display : none;"
                     return true;
                 }
+
             }
 
             // create new contructor 
@@ -223,26 +242,33 @@ window.onload = () => {
             };
 
             function searchStatusData(searchStatus) {
-
                 dataForm = JSON.parse(localStorage.getItem("data"));
                 dataForm.forEach((item) => {
-                    if (item.status == searchStatus) {
-                        var items = document.querySelectorAll("tbody tr ");
-                        items.forEach((a, b) => {
-                            var c = a.querySelector("span").textContent;
+                    var items = document.querySelectorAll("tbody tr");
+                    if (item.status === searchStatus) {
+                        for (let i = 0; i < items.length; i++) {
+                            var c = items[i].querySelector("span").textContent;
                             if (c === searchStatus) {
-                                items[b].style.cssText = "display : table-row;"
+                                console.log("Ẩn:" + searchStatus);
+                                items[i].style.cssText = "display : table-row";
                             } else {
-                                items[b].style.cssText = "display : none;"
+                                items[i].style.cssText = "display : none;"
                             }
+                        }
+                    } else {
+                        items.forEach(item => {
+                            item.style.cssText = "display : none";
+                        })
+                    }
+                    if (searchStatus == "Tất Cả") {
+                        items.forEach(item => {
+                            item.style.cssText = "display : table-row";
                         })
                     }
                 })
 
                 localStorage.setItem("data", JSON.stringify(dataForm))
             }
-
-
 
         }
     }

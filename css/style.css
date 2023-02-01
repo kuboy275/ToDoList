@@ -121,7 +121,8 @@ html {
     margin-bottom: 1rem;
 }
 
-.form__add form .error {
+.form__add form .error,
+.form__add form .error-status {
     align-items: center;
     font-size: 1.5rem;
     color: red;
