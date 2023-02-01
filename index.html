@@ -24,12 +24,14 @@
                 <form action="">
                     <label for="name"> Tên : </label>
                     <input type="text" id="name" required/>
-                    <span class="error"> Vui lòng nhập tên vào</span>
+                    <span class="error"> Vui lòng nhập tên công việc!</span>
                     <label for="">Trạng Thái :</label>
-                    <select name="" id="selectStatus">
+                    <select name="Staus" id="selectStatus" required="required">
+                        <option value="">Chọn trạng thái</option>
                         <option value="Kích Hoạt" id="action">Kích Hoạt</option>
                         <option value="Ẩn" id="hidden">Ẩn</option>
                     </select>
+                    <span class="error-status"> Vui lòng chọn trạng thái!</span>
                 </form>
                 <div class="success">
                     <a href="#" class="btn__all1" id="save"> <i class="fa fa-plus" aria-hidden="true"></i> Lưu Lại</a>
